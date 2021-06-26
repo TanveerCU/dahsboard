@@ -73,7 +73,7 @@ function Home() {
 
             {/* Revanue Section */}
 
-           <section className='border border-black mx-auto flex justify-center flex-wrap '>
+           <section className='mx-auto flex justify-center flex-wrap '>
                {
                props.map((prop)=>{
                    return <SalesUtil {...prop} key={prop.title}/>
