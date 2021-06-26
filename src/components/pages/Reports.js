@@ -10,7 +10,7 @@ function Reports() {
     return (
         <div className="ml-14 mt-12 pt-8 flex flex-col items-center justify-center space-y-28  sm:ml-48 sm:mt-16 sm:items-start" >
             <TableUtils data={sdata} text="Sales Report" />
-            <TableUtils data={tdata} text="Transactions Repor" />
+            <TableUtils data={tdata} text="Transactions Report" />
             <TableUtils data={udata} text="Users Report" />
         </div>
     )

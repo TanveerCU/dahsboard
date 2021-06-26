@@ -1,5 +1,20 @@
 import * as React from 'react';
-import { DataGrid, GridToolbar } from '@material-ui/data-grid';
+import { DataGrid, 
+  GridToolbarContainer,
+  GridToolbarExport,
+  GridToolbarFilterButton,
+  GridToolbarColumnsButton
+ } from '@material-ui/data-grid';
+
+function CustomToolbar() {
+  return (
+    <GridToolbarContainer>
+      <GridToolbarExport />
+      <GridToolbarFilterButton />
+      <GridToolbarColumnsButton />
+    </GridToolbarContainer>
+  );
+}
 
 export default function ColumnSelectorGrid({data,text}) {
     const [pageSize, setPageSize] = React.useState(5);
@@ -13,7 +28,7 @@ export default function ColumnSelectorGrid({data,text}) {
     <DataGrid
         {...data}
         components={{
-        Toolbar: GridToolbar,
+        Toolbar: CustomToolbar,
         }}
         pageSize={pageSize}
         onPageSizeChange={handlePageSizeChange}

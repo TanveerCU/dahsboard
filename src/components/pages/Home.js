@@ -7,6 +7,8 @@ import img3 from '../../img/user3.png';
 import img4 from '../../img/user4.png';
 import img5 from '../../img/user5.jpg';
 import UserCard from '../utils/UserCard';
+import TableUtils from '../utils/TableUtils';
+import {useTransaction} from '../../data/allData';
 
 const userData = [
     {
@@ -64,13 +66,14 @@ const props = [
 
 
 function Home() {
+    const data = useTransaction();
     return (
-        <div className="ml-14 mt-12 pt-8 flex flex-col items-center justify-center  sm:ml-48 sm:mt-16 sm:items-start" >
+        <div className="ml-14 mt-12 pt-8 flex flex-col items-center justify-center  sm:ml-48 sm:mt-16 sm:items-start " >
 
 
             {/* Revanue Section */}
 
-           <section className=' mx-auto flex justify-center flex-wrap '>
+           <section className='border border-black mx-auto flex justify-center flex-wrap '>
                {
                props.map((prop)=>{
                    return <SalesUtil {...prop} key={prop.title}/>
@@ -90,7 +93,9 @@ function Home() {
 
 
             {/* Recent Add Users */}
-            <section className="flex flex-col space-y-8 mt-8 mb-8 shadow-md p-8 sm:ml-6">
+            <div className="flex flex-wrap justify-center mt-12 w-full md:space-x-10">
+
+            <section className="flex flex-col space-y-8 mb-8 shadow-md p-8 sm:ml-6">
             <span className="block text-lg font-bold  text-blue-900 ">Recently Added users</span>
                 {
                     userData.map((data)=>{
@@ -99,6 +104,12 @@ function Home() {
                 }
 
             </section>
+           
+           <span className="flex-auto shadow-xl mb-8">
+            <TableUtils data={data} text="Recent Transaction" />
+           </span>
+
+            </div>
          
 
         </div>

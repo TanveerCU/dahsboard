@@ -1,6 +1,6 @@
 
 import DrawerDashBoard from './components/drawer/DrawerDashBoard';
-// import Page1 from './Page1'
+import Page1 from './Page1'
 import {BrowserRouter as Router , Route, Switch} from 'react-router-dom';
 import Home from './components/pages/Home';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -16,7 +16,7 @@ const theme = createMuiTheme({
   breakpoints: {
     values: {
       xs: 0,
-      sm: 641,
+      sm: 640,
       md: 960,
       lg: 1280,
       xl: 1920,
@@ -30,6 +30,7 @@ function App() {
       <Router>
       <DrawerDashBoard />
         <Switch>
+          <Route path='/' component={Home} exact />
           <Route path='/home' component={Home} exact />
           <Route path='/analitycs' component={Analitycs} exact />
           <Route path='/sales' component={Sales} exact />
@@ -41,8 +42,8 @@ function App() {
         </Switch>
       </Router>
       </ThemeProvider>
-       {/* <Page1 />
-       <BarStat /> */}
+       {/* <Page1 /> */}
+       {/* <BarStat /> */}
 
     </div>
   );
