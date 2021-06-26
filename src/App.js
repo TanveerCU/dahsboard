@@ -1,10 +1,8 @@
 
 import DrawerDashBoard from './components/drawer/DrawerDashBoard';
-import Page1 from './Page1'
 import {BrowserRouter as Router , Route, Switch} from 'react-router-dom';
 import Home from './components/pages/Home';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-// import BarStat from './BarChart';
 import Analitycs from './components/pages/Analitycs';
 import Transactions from './components/pages/Transactions';
 import Sales from './components/pages/Sales';
@@ -42,9 +40,6 @@ function App() {
         </Switch>
       </Router>
       </ThemeProvider>
-       {/* <Page1 /> */}
-       {/* <BarStat /> */}
-
     </div>
   );
 }

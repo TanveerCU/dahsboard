@@ -17,7 +17,7 @@ function CustomToolbar() {
 }
 
 export default function ColumnSelectorGrid({data,text}) {
-    const [pageSize, setPageSize] = React.useState(5);
+    const [pageSize, setPageSize] = React.useState(20);
 
       const handlePageSizeChange = (params) => {
         setPageSize(params.pageSize);

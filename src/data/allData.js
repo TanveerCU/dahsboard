@@ -1,8 +1,7 @@
 import { useDemoData } from '@material-ui/x-grid-data-generator';
 import {user} from './userData';
 import { product } from './productData';
-
-import ShowUser from '../components/utils/ShowUser';
+import Display from '../components/utils/Display';
 
 export const useTransaction = ()=>{
     const { data } = useDemoData({
@@ -67,15 +66,25 @@ export const useUserReport = ()=>{
 
 export const useUser = ()=>{
 
+
+
   const columns = [
     {
       field: 'img',
       headerName: 'User',
-      width: 300,
+      width: 180,
       renderCell: (params) => (
         <strong className="flex space-x-5 items-center">
           <img src={params.value} alt="pic" className="h-8 w-8 rounded-full"/>
-          <ShowUser/>
+          <Display
+          type={"u"}
+          img={params.getValue(params.id,'img')}
+          email={params.getValue(params.id,'email')}
+          first={params.getValue(params.id,'first')}
+          last={params.getValue(params.id,'last')}
+          create={params.getValue(params.id,'created_at')}
+          country={params.getValue(params.id,'country')}
+          />
          
         </strong>
       ),
@@ -120,11 +129,16 @@ export const useProduct =()=>{
     {
       field: 'product-image-url',
       headerName: 'Product',
-      width: 300,
+      width: 150,
       renderCell: (params) => (
         <strong className="flex space-x-5 items-center">
           <img src={params.value} alt="pic" className="h-8 w-8 rounded-full"/>
-          <ShowUser/>
+          <Display
+           type={"p"}
+           title={params.getValue(params.id,'product-name')}
+           cat={params.getValue(params.id,'header-top-left-text')}
+           img={params.getValue(params.id,'product-image-url')}
+          />
          
         </strong>
       ),
